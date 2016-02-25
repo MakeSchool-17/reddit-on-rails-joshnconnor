@@ -1,0 +1,18 @@
+<h1>Create posts</h1>
+<%= form_for(@post) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+  <br>
+
+  <%= f.label :link %>
+  <%= f.text_field :link, class: "form-control" %>
+  <br>
+
+  <%= f.label :content, "Content" %>
+  <%= f.text_area :content, :cols => '10', :rows => '10', class: "form-control" %>
+  <br>
+
+  <%= f.submit "Create Post", class: "btn btn-primary" %>
+
+<% end %>
