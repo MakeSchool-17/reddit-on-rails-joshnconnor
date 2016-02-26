@@ -8,6 +8,5 @@ class CreateSubreddits < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :subreddits, [:user_id]
   end
 end
