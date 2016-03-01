@@ -5,11 +5,11 @@ class PostTest < ActiveSupport::TestCase
     @user = users(:josh)
     @subreddit = subreddits(:sports)
     @subreddit[:user_id] = @user.id
-    @post = Post.new(
-            title: "Google wins the game",
-            content: "We already knew that",
-            user_id: @user.id,
-            subreddit_id: @subreddit.id)
+    @post = @subreddit.posts.build(
+                                    title: "Google wins the game",
+                                    content: "We already knew that",
+                                    user_id: @user.id
+    )
   end
 
   test "should be valid" do
