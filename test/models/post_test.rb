@@ -3,7 +3,13 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:josh)
-    @post = Post.new(title: "Google wins the game", content: "We already knew that", user_id: @user.id)
+    @subreddit = subreddits(:sports)
+    @subreddit[:user_id] = @user.id
+    @post = Post.new(
+            title: "Google wins the game",
+            content: "We already knew that",
+            user_id: @user.id,
+            subreddit_id: @subreddit.id)
   end
 
   test "should be valid" do
@@ -17,6 +23,11 @@ class PostTest < ActiveSupport::TestCase
 
   test "title should be present" do
     @post.title = "   "
+    assert_not @post.valid?
+  end
+
+  test "subreddit id should be present" do
+    @post.subreddit_id = nil
     assert_not @post.valid?
   end
 end
