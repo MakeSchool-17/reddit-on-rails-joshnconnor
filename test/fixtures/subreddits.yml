@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 sports:
-  name: "sports"
+  name: "sportysports"
   title: "subreddit on sports"
   description: "a place to share sport stuff"
   user_id:
