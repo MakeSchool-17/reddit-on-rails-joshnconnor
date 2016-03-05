@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'subreddits/index'
-
   get 'subreddit/index'
 
   root              'users#index'
@@ -13,8 +12,9 @@ Rails.application.routes.draw do
   get 'submit'  => 'posts#new'
   resources :posts
 
-  get 'subreddits/create' => 'subreddits#new'
-  resources :subreddits, path: '/r/subreddits'
+  get 'subreddit/create' => 'subreddits#new'
+  get 'r/all'            => 'subreddits#index'
+  resources :subreddits, path: '/r'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
