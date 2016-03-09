@@ -28,6 +28,6 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :link,
-                                   :content)
+                                   :content, :subreddit_id)
     end
 end

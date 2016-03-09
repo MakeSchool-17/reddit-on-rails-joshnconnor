@@ -3,7 +3,7 @@ class Subreddit < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   validates :user_id, presence: true
   validates :name, presence: true,
-                   format: { with: /^[a-zA-Z0-9]*$/, multiline: true},
+                   format: { with: /^[A-Za-z0-9.&]*\z/, multiline: true},
                    length: { maximum: 21, minimum: 4},
                    uniqueness: { case_sensitive: false }
                    #  ^ validates there are no special characters

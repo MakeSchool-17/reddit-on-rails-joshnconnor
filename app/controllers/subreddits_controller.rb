@@ -14,7 +14,7 @@ class SubredditsController < ApplicationController
     if @subreddit.save
       redirect_to @subreddit
     else
-      flash[:danger] = "invalid subreddit submission/save"
+      flash[:danger] = "invalid subreddit submission/save: #{@subreddit.errors.inspect}"
       render :new
     end
   end

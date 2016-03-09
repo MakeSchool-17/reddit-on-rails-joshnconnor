@@ -1,0 +1,10 @@
+-[] Post Create method
+-[] Post Show method
+-[] Fix tests to account for updated routes
+------
+-[] Comment CRUD
+-[] Allow subscribing to subreddits
+-[] Add Devise
+-[] Add moderators (specfic permissions)
+-[] Delete users
+-[] Add admins
