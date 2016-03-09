@@ -1,0 +1,16 @@
+<h1>
+  <strong>Subreddit:</strong>
+  <%= @subreddit.name %>
+</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @subreddit.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @subreddit.description %>
+</p>
+
+<%= link_to 'Edit', edit_subreddit_path(@subreddit) %>

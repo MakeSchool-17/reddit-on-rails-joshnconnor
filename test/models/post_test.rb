@@ -8,6 +8,7 @@ class PostTest < ActiveSupport::TestCase
     @post = @subreddit.posts.build(
                                     title: "Google wins the game",
                                     content: "We already knew that",
+                                    link: "http://www.go.com",
                                     user_id: @user.id
     )
   end

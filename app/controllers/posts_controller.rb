@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def create
     @user = User.find_by_id(session[:user_id]) # how to test this?
     @post = @user.posts.create(post_params)
+    # @post = Post.new(post_params)
+
     if @post.save
       redirect_to @post
     else

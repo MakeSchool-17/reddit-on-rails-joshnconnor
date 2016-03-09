@@ -11,19 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301205751) do
+ActiveRecord::Schema.define(version: 20160304192720) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "post_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "parent_type"
   end
 
-  add_index "comments", ["parent_id"], name: "index_comments_on_parent_id"
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["parent_type", "parent_id"], name: "index_comments_on_parent_type_and_parent_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|

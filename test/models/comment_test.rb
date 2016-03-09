@@ -10,7 +10,8 @@ class CommentTest < ActiveSupport::TestCase
     @post[:user_id] = @user.id
     @comment = @user.comments.build(
                                     content: "asdf",
-                                    post_id: @post.id
+                                    parent_id: @post.id,
+                                    parent_type: "Post"
     )
   end
 
@@ -29,7 +30,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "post id should be present" do
-    @comment.post_id = nil
+    @comment.parent_id = nil
     assert_not @comment.valid?
   end
 end

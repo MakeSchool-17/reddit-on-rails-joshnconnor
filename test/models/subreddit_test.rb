@@ -3,10 +3,10 @@ require 'test_helper'
 class SubredditTest < ActiveSupport::TestCase
   def setup
     @user = users(:josh)
-    @subreddit = @user.subreddits.build(name: "sports",
-    title: "stuff on sports",
-    description: "a subreddit on sports",
-    user_id: @user.id)
+    @subreddit = @user.subreddits.build(
+                            name: "sports",
+                            title: "stuff on sports",
+                            description: "a subreddit on sports")
   end
 
   test "should be valid" do

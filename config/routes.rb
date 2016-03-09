@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root              'users#index'
+  get 'subreddits/index'
+  get 'subreddit/index'
+
+  root              'subreddits#index'
   get 'signup'  =>  'users#new'
   get 'login'   =>  'sessions#new'
   post 'login'  =>  'sessions#create'
@@ -8,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'submit'  => 'posts#new'
   resources :posts
+
+  get 'subreddit/create' => 'subreddits#new'
+  get 'r/all'            => 'subreddits#index'
+  resources :subreddits
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
