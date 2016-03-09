@@ -25,6 +25,7 @@ class SubredditsController < ApplicationController
 
   def edit
     @subreddit = Subreddit.find_by_id(params[:id])
+    # should redirect back to @subreddit
   end
 
   def update
