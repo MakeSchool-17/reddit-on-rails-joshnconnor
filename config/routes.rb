@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'subreddits/index'
   get 'subreddit/index'
 
-  root              'users#index'
+  root              'subreddits#index'
   get 'signup'  =>  'users#new'
   get 'login'   =>  'sessions#new'
   post 'login'  =>  'sessions#create'

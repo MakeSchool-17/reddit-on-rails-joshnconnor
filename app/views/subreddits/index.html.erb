@@ -1,2 +1,33 @@
-<h1>Subreddits#index</h1>
-<p>Find me in app/views/subreddits/index.html.erb</p>
+
+<h1>Listing Subreddits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>description</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subreddits.each do |subr| %>
+      <tr>
+        <td><%= link_to subr.name, subr %></td>
+        <td><%= subr.title %></td>
+        <% if subr.description.nil? %>
+          <td>None</td>
+        <% else %>
+          <td><%= subr.description %></td>
+        <% end %>
+        <td><%= link_to 'Edit', edit_subreddit_path(subr) %></td>
+        <td><%= link_to 'Destroy', subr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subreddit', new_subreddit_path %>
