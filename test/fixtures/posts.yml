@@ -5,3 +5,4 @@ test_post:
   link: "link"
   content: "content"
   user_id:
+  subreddit_id: subreddits(:sports)

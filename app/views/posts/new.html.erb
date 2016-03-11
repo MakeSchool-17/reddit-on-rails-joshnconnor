@@ -1,5 +1,5 @@
 <h1>Create posts</h1>
-<%= form_for(@post) do |f| %>
+<%= form_for [@subreddit, @post] do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %>
