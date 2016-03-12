@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'subreddit/create' => 'subreddits#new'
   get 'r/all'            => 'subreddits#index'
+
   resources :subreddits, path: '/r' do
     resources :posts
   end

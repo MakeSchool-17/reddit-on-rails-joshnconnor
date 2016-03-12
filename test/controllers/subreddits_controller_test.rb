@@ -19,7 +19,7 @@ class SubredditsControllerTest < ActionController::TestCase
   end
 
   test "should create subreddit" do
-    assert_difference('Subreddit.count') do
+    assert_difference('Subreddit.count', 1) do
       session[:user_id] = @user.id
       post :create, subreddit: { name: "frolf", title: "frat golf"}
     end

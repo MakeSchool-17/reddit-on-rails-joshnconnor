@@ -14,9 +14,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should create post" do
-    # get :new, subreddit_id: @subreddit.id
-    # assert_response :success
-    assert_difference('Post.count') do
+    assert_difference('Post.count', 1) do
       session[:user_id] = @user.id
       post :create, subreddit_id: @subreddit, post: {
         title: 'some title',
