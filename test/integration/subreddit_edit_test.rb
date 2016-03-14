@@ -13,8 +13,9 @@ class SubredditEditTest < ActionDispatch::IntegrationTest
     patch subreddit_path(@subreddit), subreddit: {
                                       name: "   ",
                                       title: "   ",
-                                      description: "yup" }
-    assert_template 'subreddits/edit'
+                                      description: "yusdfp",
+                                      user_id: @user.id }
+    assert_equal @subreddit.name, @subreddit.reload.name
   end
 
   test "should edit subreddit" do
