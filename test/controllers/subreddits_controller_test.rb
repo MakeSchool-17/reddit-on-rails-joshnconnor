@@ -4,7 +4,6 @@ class SubredditsControllerTest < ActionController::TestCase
   def setup
     @post = posts(:test_post)
     @user = users(:josh)
-    # @postSubreddit = {name: "frolf", title: "frat golf"}
     @subreddit = subreddits(:sports)
   end
 
@@ -26,6 +25,15 @@ class SubredditsControllerTest < ActionController::TestCase
     assert_redirected_to subreddit_path(assigns(:subreddit))
   end
 
+  test "should create invalid subreddit" do
+    session[:user_id] = @user.id
+    assert_difference('Subreddit.count', 0) do
+      post :create, subreddit: { name: '   ', title: '   '}
+    end
+    assert_template :new
+    assert_not flash.empty?
+  end
+
   test "should get show" do
     get :show, id: @subreddit
     assert_response :success
@@ -36,15 +44,15 @@ class SubredditsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should edit subreddit" do
+  test "should redirect edit when invalid subreddit" do
     patch :update, id: @subreddit, subreddit: {
-      name: 'some name',
-      title: 'some title',
+      name: '   ',
+      title: '   ',
       user_id: @user.id,
       description: 'some description'}
 
-    assert_response :success
-      # assert_redirected_to subreddit_path(assigns(:subreddit))
+    assert_not flash.empty?
+    # assert_redirected_to subreddit_path(assigns(:subreddit))
   end
 
 end

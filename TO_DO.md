@@ -1,10 +1,11 @@
--[] Post Create method
+-[done] Post Create method
 -[] Post Show method
--[] Fix tests to account for updated routes
+  - haven't done this yet
+-[done] Fix tests to account for updated routes
 ------
--[] Comment CRUD
--[] Allow subscribing to subreddits
 -[] Add Devise
+-[] Allow subscribing to subreddits
 -[] Add moderators (specfic permissions)
+-[] Comment CRUD
 -[] Delete users
 -[] Add admins
