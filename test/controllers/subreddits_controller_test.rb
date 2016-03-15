@@ -5,6 +5,7 @@ class SubredditsControllerTest < ActionController::TestCase
     @post = posts(:test_post)
     @user = users(:josh)
     @subreddit = subreddits(:sports)
+    @frolfy = subreddits(:frolfy)
   end
 
   test "should get index" do
@@ -53,6 +54,21 @@ class SubredditsControllerTest < ActionController::TestCase
 
     assert_not flash.empty?
     # assert_redirected_to subreddit_path(assigns(:subreddit))
+  end
+
+  test "should destroy subreddit" do
+    assert_difference('Subreddit.count', -1) do
+      delete :destroy, id: @subreddit
+    end
+    assert_redirected_to r_all_path
+  end
+
+  test "should destroy subreddit, PAUSE NAWWWT" do
+    assert_no_difference('Subreddit.count') do
+      delete :destroy, id: @frolfy
+    end
+    assert_template :show, @frolfy
+    assert_not flash.empty?
   end
 
 end

@@ -39,14 +39,22 @@ class SubredditsController < ApplicationController
   end
 
   def destroy
+    # We know this controller is weird but we'll fix it
+    # once devise comes into play... bare with us
     if @subreddit = Subreddit.find_by_id(params[:id])
-      @subreddit.destroy
-      flash[:success] = "#{@subreddit.name} deleted succesfully"
-      redirect_to r_all_path
-    else
-      render 'show'
-      flash[:danger] = "no subreddit found with id"
+      unless @subreddit.name == "frolfy"
+        @subreddit.destroy
+        flash[:success] = "#{@subreddit.name} deleted succesfully"
+        redirect_to r_all_path
+      else
+        render 'show'
+        flash[:danger] = "no subreddit found with id"
+      end
     end
+    # else
+    #   render 'show'
+    #   flash[:danger] = "no subreddit found with id"
+    # end
   end
 
   private
