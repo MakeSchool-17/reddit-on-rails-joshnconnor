@@ -24,6 +24,17 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to subreddit_post_path(@subreddit, assigns(:post))
   end
 
+  test "should create post, PAUSE NAWWWT" do
+    assert_no_difference('Post.count') do
+      session[:user_id] = @user.id
+      post :create, subreddit_id: @subreddit, post: {
+        title: '    ',
+        link: 'http://www.link.com'
+      }
+    end
+    assert_template :new
+  end
+
 
   test "should get show" do
     get :show, subreddit_id: @post.subreddit_id, id: @post

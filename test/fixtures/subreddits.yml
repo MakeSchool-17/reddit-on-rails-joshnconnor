@@ -5,3 +5,9 @@ sports:
   title: "subreddit on sports"
   description: "a place to share sport stuff"
   user_id:
+
+frolfy:
+  name: "frolfy"
+  title: "subreddit frolfing"
+  description: "a place to share frolf stories"
+  user_id:
